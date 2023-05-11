@@ -15,7 +15,7 @@ const App = () => {
           value={figures.annualMileage}
           setValue={figures.setAnnualMileage}
         />
-        <h3 className="font-semibold">EV Lease</h3>
+        <h3 className="font-semibold">EV lease car</h3>
         <FigureInput
           displayName="Monthly lease cost"
           value={figures.leaseMonthlyCost}
@@ -27,7 +27,31 @@ const App = () => {
           value={figures.evMilesPerKwh}
           setValue={figures.setEvMilesPerKwh}
         />
+
+        <FigureInput
+          displayName="Cost per kWh"
+          value={figures.kwhCost}
+          setValue={figures.setKwhCost}
+          isCurrency
+        />
         <h3 className="font-semibold">ICE car</h3>
+        <FigureInput
+          displayName="Car purchase price"
+          value={figures.carPurchaseCost}
+          setValue={figures.setCarPurchaseCost}
+          isCurrency
+        />
+        <FigureInput
+          displayName="Car ownership length (years)"
+          value={figures.expectedOwnershipLength}
+          setValue={figures.setExpectedOwnershipLength}
+        />
+        <FigureInput
+          displayName="Expected car resale value"
+          value={figures.expectedCarResaleValue}
+          setValue={figures.setExpectedCarResaleValue}
+          isCurrency
+        />
         <FigureInput
           displayName="Annual insurance cost"
           value={figures.insurance}
@@ -43,6 +67,18 @@ const App = () => {
           displayName="Fuel cost per litre"
           value={figures.fuelCostLitre}
           setValue={figures.setFuelCostLitre}
+          isCurrency
+        />
+        <FigureInput
+          displayName="Annual maintenance cost"
+          value={figures.annualMaintenance}
+          setValue={figures.setAnnualMaintenance}
+          isCurrency
+        />
+        <FigureInput
+          displayName="MOT and service cost"
+          value={figures.mot}
+          setValue={figures.setMot}
           isCurrency
         />
       </div>

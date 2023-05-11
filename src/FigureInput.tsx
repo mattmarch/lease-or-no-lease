@@ -13,7 +13,7 @@ export const FigureInput = ({
   displayName,
   isCurrency,
 }: FigureInputProps) => (
-  <label className="flex justify-between space-x-2">
+  <label className="flex justify-between space-x-2 items-baseline">
     {displayName}
     <NumericFormat
       className="ml-4 border rounded-md border-slate-300 p-1"
