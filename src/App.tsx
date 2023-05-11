@@ -1,5 +1,6 @@
+import { CurrencyDisplay } from "./CurrencyDisplay";
 import { FigureInput } from "./FigureInput";
-import { useFigures } from "./figures";
+import { getMonthlyEvCost, getMonthlyIceCost, useFigures } from "./figures";
 
 const App = () => {
   const figures = useFigures();
@@ -7,6 +8,15 @@ const App = () => {
   return (
     <div className="flex flex-col items-center justify-center h-full space-y-4">
       <h1 className="text-3xl">Lease or no lease</h1>
+      <h2 className="text-xl">Results</h2>
+      <p>
+        The EV monthly cost is{" "}
+        <CurrencyDisplay value={getMonthlyEvCost(figures)} />
+      </p>
+      <p>
+        The ICE monthly cost is{" "}
+        <CurrencyDisplay value={getMonthlyIceCost(figures)} />
+      </p>
       <h2 className="text-xl">Enter figures</h2>
       <div className="flex flex-col items-stretch space-y-2">
         <h3 className="font-semibold">General</h3>

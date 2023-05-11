@@ -79,3 +79,39 @@ export const useFigures = () => {
     setLeaseMonthlyCost,
   };
 };
+
+export const getMonthlyEvCost = ({
+  leaseMonthlyCost,
+  evMilesPerKwh,
+  annualMileage,
+  kwhCost,
+}: Figures) => {
+  const mileageCost = (kwhCost * evMilesPerKwh * annualMileage) / 12;
+  return leaseMonthlyCost + mileageCost;
+};
+
+const litresPerGallon = 4.546;
+
+export const getMonthlyIceCost = ({
+  insurance,
+  mot,
+  annualMileage,
+  fuelCostLitre,
+  fuelMpg,
+  annualMaintenance,
+  carPurchaseCost,
+  expectedOwnershipLength,
+  expectedCarResaleValue,
+}: Figures) => {
+  const annualDepreciationCost =
+    (carPurchaseCost - expectedCarResaleValue) / expectedOwnershipLength;
+  const annualMileageCost =
+    (fuelCostLitre * litresPerGallon * annualMileage) / fuelMpg;
+  const totalAnnualCost =
+    annualDepreciationCost +
+    annualMileageCost +
+    annualMaintenance +
+    mot +
+    insurance;
+  return totalAnnualCost / 12;
+};
