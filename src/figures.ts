@@ -86,7 +86,7 @@ export const getMonthlyEvCost = ({
   annualMileage,
   kwhCost,
 }: Figures) => {
-  const mileageCost = (kwhCost * evMilesPerKwh * annualMileage) / 12;
+  const mileageCost = (kwhCost * annualMileage) / (evMilesPerKwh * 12);
   return leaseMonthlyCost + mileageCost;
 };
 
