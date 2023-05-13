@@ -5,6 +5,7 @@ type FigureInputProps = {
   value: number;
   setValue: (v: number) => void;
   isCurrency?: boolean;
+  decimalPlaces?: number;
 };
 
 export const FigureInput = ({
@@ -12,6 +13,7 @@ export const FigureInput = ({
   setValue,
   displayName,
   isCurrency,
+  decimalPlaces,
 }: FigureInputProps) => (
   <label className="flex justify-between space-x-2 items-baseline">
     {displayName}
@@ -20,7 +22,9 @@ export const FigureInput = ({
       value={value}
       onValueChange={(v) => setValue(v.floatValue || 0)}
       prefix={isCurrency ? "£" : undefined}
-      decimalScale={2}
+      decimalScale={
+        decimalPlaces === undefined ? (isCurrency ? 2 : 0) : decimalPlaces
+      }
       fixedDecimalScale={true}
       thousandSeparator=","
     />

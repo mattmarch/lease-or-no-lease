@@ -2,16 +2,16 @@ import { useState } from "react";
 
 const defaultInsurance = 300;
 const defaultMot = 50;
-const defaultAnnualMileage = 5000;
+const defaultAnnualMileage = 10000;
 const defaultFuelCostLitre = 1.5;
-const defaultFuelMpg = 40;
+const defaultFuelMpg = 35;
 const defaultEvMilesPerKwh = 3;
 const defaultKwhCost = 0.3;
 const defaultAnnualMaintenance = 200;
-const defaultCarPurchaseCost = 8000;
+const defaultCarPurchaseCost = 12000;
 const defaultExpectedOwnershipLength = 5;
-const defaultExpectedCarResaleValue = 1000;
-const defaultLeaseMonthlyCost = 500;
+const defaultExpectedCarResaleValue = 3000;
+const defaultLeaseMonthlyCost = 400;
 
 export type Figures = {
   insurance: number;

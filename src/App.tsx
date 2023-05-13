@@ -35,6 +35,7 @@ const App = () => {
           displayName="Miles per kWh"
           value={figures.evMilesPerKwh}
           setValue={figures.setEvMilesPerKwh}
+          decimalPlaces={1}
         />
 
         <FigureInput
@@ -71,6 +72,7 @@ const App = () => {
           displayName="Miles per gallon"
           value={figures.fuelMpg}
           setValue={figures.setfuelMpg}
+          decimalPlaces={1}
         />
         <FigureInput
           displayName="Fuel cost per litre"
