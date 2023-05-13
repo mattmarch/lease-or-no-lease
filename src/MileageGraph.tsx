@@ -16,6 +16,7 @@ import {
   Title,
   Tooltip,
 } from "chart.js";
+import { formatAsGbp, range } from "./utils";
 
 Chart.register(
   CategoryScale,
@@ -102,12 +103,3 @@ const getChartDataFromFigures = (figures: Figures) => {
     ],
   };
 };
-
-const range = (start: number, stepSize: number, steps: number) =>
-  [...Array(steps + 1)].map((_, i) => start + i * stepSize);
-
-const formatAsGbp = (value: number | string) =>
-  value.toLocaleString("en-GB", {
-    style: "currency",
-    currency: "GBP",
-  });

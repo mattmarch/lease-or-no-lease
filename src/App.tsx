@@ -1,7 +1,7 @@
-import { CurrencyDisplay } from "./CurrencyDisplay";
 import { FigureInput } from "./FigureInput";
 import { MileageGraph } from "./MileageGraph";
 import { getMonthlyEvCost, getMonthlyIceCost, useFigures } from "./figures";
+import { formatAsGbp } from "./utils";
 
 const App = () => {
   const figures = useFigures();
@@ -14,14 +14,8 @@ const App = () => {
         combustion engine (ICE) car
       </p>
       <h2 className="text-xl">Results</h2>
-      <p>
-        The EV monthly cost is{" "}
-        <CurrencyDisplay value={getMonthlyEvCost(figures)} />
-      </p>
-      <p>
-        The ICE monthly cost is{" "}
-        <CurrencyDisplay value={getMonthlyIceCost(figures)} />
-      </p>
+      <p>The EV monthly cost is {formatAsGbp(getMonthlyEvCost(figures))}</p>
+      <p>The ICE monthly cost is {formatAsGbp(getMonthlyIceCost(figures))}</p>
       <h2 className="text-xl">Enter figures</h2>
       <div className="flex flex-col items-stretch space-y-2">
         <h3 className="font-semibold">General</h3>
