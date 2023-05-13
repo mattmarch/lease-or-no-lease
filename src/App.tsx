@@ -1,14 +1,15 @@
 import { CurrencyDisplay } from "./CurrencyDisplay";
 import { FigureInput } from "./FigureInput";
+import { MileageGraph } from "./MileageGraph";
 import { getMonthlyEvCost, getMonthlyIceCost, useFigures } from "./figures";
 
 const App = () => {
   const figures = useFigures();
 
   return (
-    <div className="flex flex-col items-center justify-center h-full space-y-4">
+    <div className="flex flex-col items-center justify-around h-full space-y-4 mt-6 m-4">
       <h1 className="text-3xl">Lease or no lease</h1>
-      <p>
+      <p className="text-center">
         Comparing cost of EV leasing against purchasing a second hand internal
         combustion engine (ICE) car
       </p>
@@ -96,6 +97,7 @@ const App = () => {
           isCurrency
         />
       </div>
+      <MileageGraph figures={figures} />
     </div>
   );
 };

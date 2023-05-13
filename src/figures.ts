@@ -80,24 +80,31 @@ export const useFigures = () => {
   };
 };
 
-export const getMonthlyEvCost = ({
-  leaseMonthlyCost,
-  evMilesPerKwh,
-  annualMileage,
-  kwhCost,
-}: Figures) => {
-  const mileageCost = (kwhCost * annualMileage) / (evMilesPerKwh * 12);
-  return leaseMonthlyCost + mileageCost;
+export const getMonthlyEvCost = (figures: Figures) => {
+  return (
+    getEvBaseMonthlyCost(figures) +
+    (getEvCostPerMile(figures) * figures.annualMileage) / 12
+  );
 };
 
-const litresPerGallon = 4.546;
+export const getMonthlyIceCost = (figures: Figures) => {
+  return (
+    getIceBaseMonthlyCost(figures) +
+    (getIceCostPerMile(figures) * figures.annualMileage) / 12
+  );
+};
 
-export const getMonthlyIceCost = ({
+export const getEvCostPerMile = ({ evMilesPerKwh, kwhCost }: Figures) =>
+  kwhCost / evMilesPerKwh;
+export const getEvBaseMonthlyCost = ({ leaseMonthlyCost }: Figures) =>
+  leaseMonthlyCost;
+
+const litresPerGallon = 4.546;
+export const getIceCostPerMile = ({ fuelCostLitre, fuelMpg }: Figures) =>
+  (fuelCostLitre * litresPerGallon) / fuelMpg;
+export const getIceBaseMonthlyCost = ({
   insurance,
   mot,
-  annualMileage,
-  fuelCostLitre,
-  fuelMpg,
   annualMaintenance,
   carPurchaseCost,
   expectedOwnershipLength,
@@ -105,13 +112,7 @@ export const getMonthlyIceCost = ({
 }: Figures) => {
   const annualDepreciationCost =
     (carPurchaseCost - expectedCarResaleValue) / expectedOwnershipLength;
-  const annualMileageCost =
-    (fuelCostLitre * litresPerGallon * annualMileage) / fuelMpg;
   const totalAnnualCost =
-    annualDepreciationCost +
-    annualMileageCost +
-    annualMaintenance +
-    mot +
-    insurance;
+    annualDepreciationCost + annualMaintenance + mot + insurance;
   return totalAnnualCost / 12;
 };

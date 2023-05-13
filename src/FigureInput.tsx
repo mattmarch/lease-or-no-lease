@@ -21,6 +21,7 @@ export const FigureInput = ({
       onValueChange={(v) => setValue(v.floatValue || 0)}
       prefix={isCurrency ? "£" : undefined}
       decimalScale={2}
+      fixedDecimalScale={true}
       thousandSeparator=","
     />
   </label>
