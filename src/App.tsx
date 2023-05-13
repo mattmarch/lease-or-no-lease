@@ -8,6 +8,10 @@ const App = () => {
   return (
     <div className="flex flex-col items-center justify-center h-full space-y-4">
       <h1 className="text-3xl">Lease or no lease</h1>
+      <p>
+        Comparing cost of EV leasing against purchasing a second hand internal
+        combustion engine (ICE) car
+      </p>
       <h2 className="text-xl">Results</h2>
       <p>
         The EV monthly cost is{" "}
