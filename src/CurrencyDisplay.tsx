@@ -7,6 +7,7 @@ export const CurrencyDisplay = ({ value }: CurrencyDisplayProps) => (
     value={value}
     prefix={"£"}
     decimalScale={2}
+    thousandSeparator=","
     displayType="text"
   />
 );
