@@ -30,13 +30,25 @@ const defaultFigures: Figures = {
   leaseMonthlyCost: 400,
 };
 
+const localStorageKey = "lease-figures";
+
 export const useFigures = () => {
-  const [figures, setFigures] = useState<Figures>(defaultFigures);
+  const previousFigures = localStorage.getItem(localStorageKey);
+  const startingFigures = previousFigures
+    ? { ...defaultFigures, ...JSON.parse(previousFigures) }
+    : defaultFigures;
+
+  const [figures, setFigures] = useState<Figures>(startingFigures);
+
+  const setAndSaveFigures = (newFigures: Figures) => {
+    localStorage.setItem(localStorageKey, JSON.stringify(newFigures));
+    setFigures(newFigures);
+  };
 
   const setFigure = (figureName: keyof Figures) => (value: number) =>
-    setFigures({ ...figures, [figureName]: value });
+    setAndSaveFigures({ ...figures, [figureName]: value });
 
-  const resetFigures = () => setFigures(defaultFigures);
+  const resetFigures = () => setAndSaveFigures(defaultFigures);
 
   return {
     figures,
