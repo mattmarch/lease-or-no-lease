@@ -54,6 +54,25 @@ const App = () => {
       <FullWidthCard>
         <MileageGraph figures={figures} />
       </FullWidthCard>
+      <FullWidthCard>
+        <p className="text-center">
+          Made by{" "}
+          <a
+            href="https://mattmarch.co.uk"
+            className="text-blue-600 hover:text-blue-800 visited:text-purple-600"
+          >
+            Matt March
+          </a>{" "}
+          and running entirely in your browser. Check out{" "}
+          <a
+            href="https://github.com/mattmarch/lease-or-no-lease"
+            className="text-blue-600 hover:text-blue-800 visited:text-purple-600"
+          >
+            the source code
+          </a>
+          .
+        </p>
+      </FullWidthCard>
     </div>
   );
 };
