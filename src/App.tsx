@@ -93,7 +93,7 @@ const App = () => {
           isCurrency
         />
         <button
-          className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded self-center"
+          className="bg-transparent hover:bg-slate-500 text-slate-700 font-semibold hover:text-white py-2 px-3 border border-slate-500 hover:border-transparent rounded-lg self-center"
           onClick={resetFigures}
         >
           Reset all
