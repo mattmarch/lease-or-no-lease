@@ -31,13 +31,14 @@ Chart.register(
 type MileageGraphProps = { figures: Figures };
 
 export const MileageGraph = ({ figures }: MileageGraphProps) => (
-  <div className="w-3/4 m-8">
+  <div className="h-128">
     <Line
       options={{
         responsive: true,
+        maintainAspectRatio: false,
         plugins: {
           legend: {
-            position: "right" as const,
+            position: "top" as const,
           },
           title: {
             display: true,

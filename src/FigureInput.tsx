@@ -18,7 +18,7 @@ export const FigureInput = ({
   <label className="flex justify-between space-x-2 items-baseline">
     {displayName}
     <NumericFormat
-      className="ml-4 border rounded-md border-slate-300 p-1"
+      className="ml-4 border rounded-md border-slate-300 p-1 w-28"
       value={value}
       onValueChange={(v) => setValue(v.floatValue || 0)}
       prefix={isCurrency ? "£" : undefined}

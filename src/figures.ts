@@ -15,6 +15,8 @@ export type Figures = {
   leaseMonthlyCost: number;
 };
 
+export type SetFigure = (figureName: keyof Figures) => (value: number) => void;
+
 const defaultFigures: Figures = {
   insurance: 300,
   mot: 50,
@@ -45,7 +47,7 @@ export const useFigures = () => {
     setFigures(newFigures);
   };
 
-  const setFigure = (figureName: keyof Figures) => (value: number) =>
+  const setFigure: SetFigure = (figureName: keyof Figures) => (value: number) =>
     setAndSaveFigures({ ...figures, [figureName]: value });
 
   const resetFigures = () => setAndSaveFigures(defaultFigures);
