@@ -1,18 +1,5 @@
 import { useState } from "react";
 
-const defaultInsurance = 300;
-const defaultMot = 50;
-const defaultAnnualMileage = 10000;
-const defaultFuelCostLitre = 1.5;
-const defaultFuelMpg = 35;
-const defaultEvMilesPerKwh = 3;
-const defaultKwhCost = 0.3;
-const defaultAnnualMaintenance = 200;
-const defaultCarPurchaseCost = 12000;
-const defaultExpectedOwnershipLength = 5;
-const defaultExpectedCarResaleValue = 3000;
-const defaultLeaseMonthlyCost = 400;
-
 export type Figures = {
   insurance: number;
   mot: number;
@@ -28,55 +15,33 @@ export type Figures = {
   leaseMonthlyCost: number;
 };
 
+const defaultFigures: Figures = {
+  insurance: 300,
+  mot: 50,
+  annualMileage: 10000,
+  fuelCostLitre: 1.5,
+  fuelMpg: 35,
+  evMilesPerKwh: 3,
+  kwhCost: 0.3,
+  annualMaintenance: 200,
+  carPurchaseCost: 12000,
+  expectedOwnershipLength: 5,
+  expectedCarResaleValue: 3000,
+  leaseMonthlyCost: 400,
+};
+
 export const useFigures = () => {
-  const [insurance, setInsurance] = useState(defaultInsurance);
-  const [mot, setMot] = useState(defaultMot);
-  const [annualMileage, setAnnualMileage] = useState(defaultAnnualMileage);
-  const [fuelCostLitre, setFuelCostLitre] = useState(defaultFuelCostLitre);
-  const [fuelMpg, setfuelMpg] = useState(defaultFuelMpg);
-  const [evMilesPerKwh, setEvMilesPerKwh] = useState(defaultEvMilesPerKwh);
-  const [kwhCost, setKwhCost] = useState(defaultKwhCost);
-  const [annualMaintenance, setAnnualMaintenance] = useState(
-    defaultAnnualMaintenance
-  );
-  const [carPurchaseCost, setCarPurchaseCost] = useState(
-    defaultCarPurchaseCost
-  );
-  const [expectedOwnershipLength, setExpectedOwnershipLength] = useState(
-    defaultExpectedOwnershipLength
-  );
-  const [expectedCarResaleValue, setExpectedCarResaleValue] = useState(
-    defaultExpectedCarResaleValue
-  );
-  const [leaseMonthlyCost, setLeaseMonthlyCost] = useState(
-    defaultLeaseMonthlyCost
-  );
+  const [figures, setFigures] = useState<Figures>(defaultFigures);
+
+  const setFigure = (figureName: keyof Figures) => (value: number) =>
+    setFigures({ ...figures, [figureName]: value });
+
+  const resetFigures = () => setFigures(defaultFigures);
 
   return {
-    insurance,
-    setInsurance,
-    mot,
-    setMot,
-    annualMileage,
-    setAnnualMileage,
-    fuelCostLitre,
-    setFuelCostLitre,
-    fuelMpg,
-    setfuelMpg,
-    evMilesPerKwh,
-    setEvMilesPerKwh,
-    kwhCost,
-    setKwhCost,
-    annualMaintenance,
-    setAnnualMaintenance,
-    carPurchaseCost,
-    setCarPurchaseCost,
-    expectedOwnershipLength,
-    setExpectedOwnershipLength,
-    expectedCarResaleValue,
-    setExpectedCarResaleValue,
-    leaseMonthlyCost,
-    setLeaseMonthlyCost,
+    figures,
+    setFigure,
+    resetFigures,
   };
 };
 

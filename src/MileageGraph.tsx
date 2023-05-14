@@ -89,16 +89,16 @@ const getChartDataFromFigures = (figures: Figures) => {
         data: xAxis.map(
           (mileage) => evBaseMonthlyCost + (mileage * evCostPerMile) / 12
         ),
-        borderColor: "rgb(53, 162, 235)",
-        backgroundColor: "rgba(53, 162, 235, 0.5)",
+        borderColor: "rgb(59, 130, 246)",
+        backgroundColor: "rgba(59, 130, 246, 0.5)",
       },
       {
         label: "ICE",
         data: xAxis.map(
           (mileage) => iceBaseMonthlyCost + (mileage * iceCostPerMile) / 12
         ),
-        borderColor: "rgb(255, 99, 132)",
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
+        borderColor: "rgb(239, 68, 68)",
+        backgroundColor: "rgba(239, 68, 68, 0.5)",
       },
     ],
   };
